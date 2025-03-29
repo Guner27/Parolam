@@ -203,6 +203,11 @@ header {
     color: #3A4044;
 }
 
+.dark-mode .password.visible {
+    font-size: 1.1em;
+    color: #FFFFFF;
+}
+
 #download-btn {
     padding: 10px 20px;
     background: #81B433;
