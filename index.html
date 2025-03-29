@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şifrelerim</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Ara...">
+                <button id="dark-mode-toggle" class="dark-mode-btn">☀️</button>
+            </div>
+            <button id="download-btn" style="display: none;">Güncel Veriyi İndir</button>
+            <a href="create.html" class="add-btn">Parola Ekle</a>
+        </header>
+        <div class="filters">
+            <div class="type-filters">
+                <button class="filter-btn active" data-type="Hepsi">Hepsi</button>
+                <button class="filter-btn" data-type="Benim">Benim</button>
+                <button class="filter-btn" data-type="Başkasının">Başkasının</button>
+                <button class="filter-btn" data-type="Yedek">Yedek</button>
+            </div>
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="Hepsi">Hepsi</button>
+                <button class="filter-btn" data-category="Temel">Temel</button>
+                <button class="filter-btn" data-category="Sosyal">Sosyal</button>
+                <button class="filter-btn" data-category="Eğitim">Eğitim</button>
+                <button class="filter-btn" data-category="Alışveriş">Alışveriş</button>
+                <button class="filter-btn" data-category="Oyun ve Eğlence">Oyun ve Eğlence</button>
+                <button class="filter-btn" data-category="İş">İş</button>
+                <button class="filter-btn" data-category="İş Arama">İş Arama</button>
+                <button class="filter-btn" data-category="Diğer">Diğer</button>
+            </div>
+        </div>
+        <div class="grid" id="password-list"></div>
+    </div>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

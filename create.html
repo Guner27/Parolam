@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parola Ekle / Düzenle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="create-container">
+        <h1><a href="index.html" class="title-link">Parolam</a></h1>
+        <button id="dark-mode-toggle" class="dark-mode-btn">☀️</button>
+        <form id="create-form" class="create-form">
+            <h3>Şifre Ekle/Düzenle</h3>
+            <div class="input-wrapper">
+                <i class="fas fa-heading input-icon"></i>
+                <input type="text" id="title" placeholder="Başlık" required>
+            </div>
+            <div id="email-container">
+                <div class="email-row">
+                    <i class="fas fa-at input-icon"></i>
+                    <input type="email" class="email-input" placeholder="E-posta">
+                    <button type="button" class="add-email">+</button>
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-user input-icon"></i>
+                <input type="text" id="username" placeholder="Kullanıcı Adı">
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-key input-icon"></i>
+                <input type="password" id="password" placeholder="Şifre" required>
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-note-sticky input-icon"></i>
+                <textarea id="note" placeholder="Not"></textarea>
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-globe input-icon"></i>
+                <input type="url" id="website" placeholder="Web Sitesi">
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-folder input-icon"></i>
+                <select id="category">
+                    <option value="Temel">Temel</option>
+                    <option value="Sosyal">Sosyal</option>
+                    <option value="Eğitim">Eğitim</option>
+                    <option value="Alışveriş">Alışveriş</option>
+                    <option value="Oyun ve Eğlence">Oyun ve Eğlence</option>
+                    <option value="İş">İş</option>
+                    <option value="İş Arama">İş Arama</option>
+                    <option value="Diğer">Diğer</option>
+                </select>
+            </div>
+            <div class="input-wrapper">
+                <i class="fas fa-list input-icon"></i>
+                <select id="type">
+                    <option value="Benim">Benim</option>
+                    <option value="Başkasının">Başkasının</option>
+                    <option value="Yedek">Yedek</option>
+                </select>
+            </div>
+            <button type="submit" id="create-btn">Oluştur</button>
+            <div class="edit-buttons" style="display: none;">
+                <button type="button" id="save-btn">Kaydet</button>
+                <button type="button" id="delete-btn">Sil</button>
+            </div>
+        </form>
+    </div>
+    <script src="data.js"></script>
+    <script src="create.js"></script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #F5F5F5;
+    font-family: Arial, sans-serif;
+    color: #5F676D;
+}
+
+.container, .create-container {
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+h1 {
+    color: #4F3222;
+}
+
+.card a {
+    scale: 0.9;
+    color: #C8C8C8;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between; /* Filtreleri sağa hizala */
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap; /* Küçük ekranlarda taşmayı önler */
+    gap: 10px; /* Gruplar arasında boşluk */
+}
+
+.type-filters, .category-filters {
+    display: flex;
+    gap: 5px; /* Butonlar arası boşluk */
+}
+
+.filter-btn {
+    padding: 6px 10px; /* Küçültülmüş padding */
+    margin: 0; /* Margin kaldırıldı */
+    background: #FFFFFF;
+    border: 1px solid #C8C8C8;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em; /* Yazı boyutunu biraz küçülttük */
+}
+
+.filter-btn.active {
+    background: #81B433;
+    color: #FFFFFF;
+}
+
+
+#search {
+    padding: 10px;
+    background: #FFFFFF;
+    border: 1px solid #C8C8C8;
+    border-radius: 5px;
+}
+
+.add-btn {
+    padding: 10px 20px;
+    background: #6F4A30;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    border-top: 6px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3px;
+}
+/* Sil butonu için stil */
+.delete-btn {
+    padding: 8px 15px;
+    width: 100px;
+    background: none; /* Dolu arka planı kaldır */
+    border: 2px solid #D7263D; /* Kırmızı çerçeve */
+    color: #D7263D; /* Kırmızı yazı rengi */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease; /* Hover efekti için geçiş */
+}
+
+/* Hover efekti */
+.delete-btn:hover {
+    background: #D7263D; /* Hover'da dolu kırmızı */
+    color: #FFFFFF; /* Yazı beyaz olur */
+    opacity: 1 !important;
+    transform: scale(1.05); /* Hafif büyüme efekti */
+}
+
+/* Dark mode'da sil butonu */
+.dark-mode .delete-btn {
+    background-color: #D7263D; /* Çerçeve rengi aynı kalır */
+    color: #FFFFFF; /* Yazı rengi kırmızı */
+}
+
+.dark-mode .delete-btn:hover {
+    border-color: #D7263D;
+    background-color: #3A4044;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.edit-btn {
+    width: 100px;
+    padding: 8px;
+    border:2px solid #6F4A30;
+    color: #6F4A30;
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 5px;
+}
+/* Hover efekti */
+.edit-btn:hover {
+    background: #6F4A30; /* Hover'da dolu kırmızı */
+    color: #FFFFFF; /* Yazı beyaz olur */
+    opacity: 1 !important;
+    transform: scale(1.05); /* Hafif büyüme efekti */
+}
+
+/* Dark mode'da sil butonu */
+.dark-mode .edit-btn {
+    background-color: #6F4A30; /* Çerçeve rengi aynı kalır */
+    color: #FFFFFF; /* Yazı rengi kırmızı */
+}
+
+.dark-mode .edit-btn:hover {
+    border-color: #6F4A30;
+    background-color: #3A4044;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.card h3 {
+    color: #4F3222;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card p {
+    margin: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card .icon {
+    margin-right: 5px;
+    color: #C8C8C8;
+    scale: 0.8;
+}
+
+.card .icons {
+    display: flex;
+    gap: 12px;
+    scale: 1.1;
+    color: #6F4A30;
+
+}
+.dark-mode .icons {
+    color:#FFFFFF
+}
+
+.card .copy, .card .show {
+    cursor: pointer;
+}
+
+.password.visible {
+    font-size: 1.1em;
+    color: #3A4044;
+}
+
+#download-btn {
+    padding: 10px 20px;
+    background: #81B433;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+/* create.html için spesifik stiller */
+.create-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+    text-align: center; /* İçeriği genel olarak ortala */
+}
+.create-container h1 {
+    margin: 0; /* Varsayılan marginleri sıfırla */
+    display: inline-block; /* Block yerine inline-block kullanarak içeriği ortala */
+}
+
+.create-form {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.create-form input,
+.create-form textarea,
+.create-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #FFFFFF;
+    border: 1px solid #C8C8C8;
+    border-radius: 5px;
+    color: #5F676D;
+}
+
+.create-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.create-form #create-btn {
+    background: #6F4A30; /* Kahverengi */
+}
+
+.create-form button {
+    padding: 10px 20px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.email-row {
+    display: flex;
+    align-items: center;
+}
+
+.email-input {
+    flex: 1;
+    margin: 0;
+}
+
+.add-email, .remove-email {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #FFFFFF;
+    display: flex !important; /* Ezilmeyi önlemek için */
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1; /* Dikey hizalamayı sabitle */
+}
+
+.add-email {
+    background: #81B433; /* Yeşil */
+}
+
+.remove-email {
+    background: #D7263D; /* Kırmızı */
+}
+
+.create-form .edit-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-form #save-btn {
+    background: #81B433; /* Yeşil */
+}
+
+.create-form #delete-btn {
+    background: #D7263D; /* Kırmızı */
+}
+.create-form #create-btn {
+    background: #6F4A30; /* Kahverengi */
+}
+
+.title-link {
+    text-decoration: none;
+    color: #4F3222;
+}
+
+
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #81B433;
+    font-size:xx-large;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeInOut 5s ease ;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.toast.delete {
+    background: #D7263D;
+    color: #FFFFFF;
+}
+
+
+
+/* Dark Mode */
+body.dark-mode {
+    background: #2C2F33; /* Koyu gri */
+    color: #D3D3D3; /* Açık gri */
+}
+.dark-mode .card a {
+    color:#9DD9D2;
+}
+
+.dark-mode .container,
+.dark-mode .create-container {
+    color: #D3D3D3;
+}
+
+.dark-mode h1,.dark-mode h3,
+.dark-mode .title-link {
+    color: #E0C097; /* Açık kahverengi */
+}
+
+.dark-mode .card {
+    background: #3A3F44; /* Koyu gri kart */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .create-form {
+    background: #3A3F44;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.dark-mode #search{
+    background-color: #3A3F44;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background: #4B5156; /* Koyu gri input */
+    color: #D3D3D3;
+    border: 1px solid #5F676D;
+}
+
+.dark-mode .filter-btn,
+.dark-mode #create-btn,
+.dark-mode #save-btn,
+.dark-mode #delete-btn,
+.dark-mode .add-btn {
+    background: #6F4A30; /* Kahverengi (açık temayla uyumlu) */
+    color: #FFFFFF;
+    border-width: 0;
+}
+
+.dark-mode .filter-btn.active {
+    background: #81B433; /* Yeşil */
+}
+
+.dark-mode .add-email {
+    background: #81B433;
+}
+
+.dark-mode .remove-email {
+    background: #D7263D;
+}
+
+.dark-mode #save-btn {
+    background: #81B433;
+}
+
+.dark-mode #delete-btn {
+    background: #D7263D;
+}
+
+/* Dark Mode Butonu */
+.dark-mode-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px; /* Arama inputundan boşluk */
+}
+
+.create-container .dark-mode-btn {
+    margin: 10px 0; /* Başlık ile form arasında boşluk */
+}
+
+
+/* Inputların etrafındaki kapsayıcı */
+.input-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+/* E-posta satırı */
+.email-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* İkon stili */
+.input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: #6F4A30; /* Varsayılan kahverengi */
+    pointer-events: none; /* İkonun tıklanabilir olmasını engeller */
+}
+
+/* Input ve textarea için padding ayarı (ikonla çakışmasın) */
+#create-form input,
+#create-form textarea,
+#create-form select {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* Sol padding ikon için artırıldı */
+    border: 1px solid #ADB5BD;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* E-posta inputu için özel ayar */
+.email-input {
+    flex: 1;
+    padding: 10px 10px 10px 40px; /* İkon için sol padding */
+    margin-right: 10px;
+}
+
+/* Dark mode'da ikon rengi */
+.dark-mode .input-icon {
+    color: #D3D3D3; /* Açık gri */
+}
+
+/* Ekle/Sil butonları için stil (mevcutsa güncelle) */
+.add-email, .remove-email {
+    padding: 5px 10px;
+    background: #81B433;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-email {
+    background: #D7263D;
+}
+
+
+
+/* Ekran boyutu 480px ve altına düştüğünde 1 sütun */
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ekran boyutu 481px - 768px arasında olduğunda 2 sütun */
+@media (min-width: 481px) and (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ekran boyutu 769px - 1024px arasında olduğunda 3 sütun */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Ekran boyutu 1441px - 1920px arasında olduğunda 4 sütun */
+@media (min-width: 1441px) and (max-width: 1920px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Ekran boyutu 1921px ve üstünde olduğunda 5 sütun */
+@media (min-width: 1921px) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+/*Dark mode açılıp kapanırken veya kartlar yüklenirken yumuşak bir geçiş efekti */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.card {
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/*Kategori filtre butonları, "Düzenle", "Sil" gibi butonlara hover efekti*/
+.filter-btn:hover, .edit-btn:hover, .delete-btn:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/*Kartlarda Gölge ve Kenarlık*/
+.card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.dark-mode .card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
