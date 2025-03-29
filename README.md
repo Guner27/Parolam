@@ -36,6 +36,16 @@ Fikirlerinizi, hata raporlarınızı veya geliştirmelerinizi bekliyorum! Pull r
 ## İletişim
 Sorularınız veya önerileriniz için LinkedIn üzerinden bana ulaşabilirsiniz: [LinkedIn Profilim](https://www.linkedin.com/in/muhammed-güner-aab456181/)
 
+## Ekran görüntüleri
+
+![Ana Sayfa](images/homeLight.png)
+
+![Ana Sayfa Koyu Mod](images/homeDark.png)
+
+![Parola Ekle/Düzenle](images/create.png)
+
+
+
 ---
 
 # Parolam - Simple Password Manager
@@ -74,3 +84,11 @@ I’d love to hear your ideas, bug reports, or improvements! Feel free to submit
 
 ## Contact
 For questions or suggestions, reach out to me on LinkedIn: [My LinkedIn Profile](https://www.linkedin.com/in/muhammed-güner-aab456181/)
+
+## Screenshots
+
+![Ana Sayfa](images/homeLight.png)
+
+![Ana Sayfa Koyu Mod](images/homeDark.png)
+
+![Parola Ekle/Düzenle](images/create.png)
