@@ -60,9 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
              (p.note && p.note.toLowerCase().includes(search.toLowerCase())))
         );
 
-        filteredPasswords.forEach((item, index) => {
+        filteredPasswords.forEach((item, filteredIndex) => {
+            const realIndex = currentPasswords.indexOf(item); // Gerçek indeksi bul
             const card = document.createElement("div"); // Yeni kart oluşturur
             card.classList.add("card"); // Kart class'ını ekler
+            card.setAttribute("data-index", realIndex); // Gerçek indeksi sakla
             card.style.borderTopColor = getCategoryColor(item.category); // Kartın üst kenar rengini kategoriye göre ayarlar
             let cardContent = `<h3>${item.title}</h3>`; // Kart içeriği başlıkla başlar
 
@@ -86,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Şifreyi ekleme (gizli olarak)
             cardContent += `
                 <p><span class="icon"><i class="fas fa-key"></i></span> <span class="password">******</span> 
-                    <span class="icons"> <span class="show" onclick="togglePassword(this, ${index})"><i class="fas fa-eye"></i></span><span class="copy" onclick="copyText('${decryptPassword(item.password)}')"><i class="fas fa-copy"></i></span> 
+                    <span class="icons"> <span class="show" onclick="togglePassword(this, ${realIndex})"><i class="fas fa-eye"></i></span><span class="copy" onclick="copyText('${decryptPassword(item.password)}')"><i class="fas fa-copy"></i></span> 
                     </span></p>`;
 
             // Notu ekleme (boş değilse)
@@ -105,8 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Düzenle ve Sil butonlarını ekleme
             cardContent += `
                 <div class="button-container">
-                    <button class="edit-btn" onclick="editPassword(${index})"> Düzenle</button>
-                    <button class="delete-btn" onclick="confirmDelete(${index})">Sil</button>
+                    <button class="edit-btn" onclick="editPassword(${realIndex})">Düzenle</button>
+                    <button class="delete-btn" onclick="confirmDelete(${realIndex})">Sil</button>
                 </div>`;
 
             card.innerHTML = cardContent; // Kart içeriğini ayarlar
@@ -167,12 +169,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Şifreyi göster/gizle fonksiyonu
     window.togglePassword = (element, index) => {
         const passField = element.parentElement.previousElementSibling; // Şifre alanını seç
+        const realIndex = parseInt(element.closest(".card").getAttribute("data-index")); // Gerçek indeksi al
         if (passField.textContent === "******") { // Gizliyse
-            passField.textContent = decryptPassword(currentPasswords[index].password); // Şifreyi göster
+            passField.textContent = decryptPassword(currentPasswords[realIndex].password); // Şifreyi göster
             passField.classList.add("visible"); // Görünür class ekle
+            element.innerHTML = '<i class="fas fa-eye-slash"></i>'; // İkonu değiştir
         } else { // Görünüyorsa
             passField.textContent = "******"; // Şifreyi gizle
             passField.classList.remove("visible"); // Görünür class'ı kaldır
+            element.innerHTML = '<i class="fas fa-eye"></i>'; // İkonu geri al
         }
     };
 
@@ -207,7 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("currentPasswords", JSON.stringify(currentPasswords)); // Güncel veriyi kaydeder
         renderPasswords(activeTypeFilter, activeCategoryFilter, searchInput.value); // Listeyi yeniler
     };
-    
 
     // Şifreyi düzenleme fonksiyonu
     window.editPassword = (index) => {
