@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryFilterButtons = document.querySelectorAll(".category-filters .filter-btn"); // Kategori filtre butonları
     const downloadBtn = document.getElementById("download-btn"); // Güncel veriyi indirme butonu
     const darkModeToggle = document.getElementById("dark-mode-toggle"); // Dark mode değiştirme butonu
+    const itemSum = document.querySelector(".item-sum"); // Toplam öğe sayısını gösterecek element
 
     // Sabit şifreleme anahtarı
     const encryptionKey = "mySecretKey123";
@@ -47,6 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function decryptPassword(encryptedPassword) {
         const bytes = CryptoJS.AES.decrypt(encryptedPassword, encryptionKey); // Şifreyi çözer
         return bytes.toString(CryptoJS.enc.Utf8); // Çözülen metni UTF-8 formatında döndürür
+    }
+
+    // Toplam öğe sayısını güncelleme fonksiyonu
+    function updateItemCount(count) {
+        itemSum.textContent = `Toplam: ${count}`; // Toplam öğe sayısını DOM'a yazar
     }
 
     // Şifreleri ekranda listeleme fonksiyonu
@@ -114,6 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
             card.innerHTML = cardContent; // Kart içeriğini ayarlar
             passwordList.appendChild(card); // Kartı listeye ekler
         });
+
+        // Toplam öğe sayısını güncelle
+        updateItemCount(filteredPasswords.length);
+
         checkForChanges(); // Değişiklikleri kontrol eder
     }
 
